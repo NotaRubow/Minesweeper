@@ -57,12 +57,12 @@ public class Minesweeper {
             case 1:
                 numRows = 12;
                 numCols = 12;
-                mineCount = 20;
+                mineCount = 30;
                 break;
             case 2:
                 numRows = 16;
                 numCols = 16;
-                mineCount = 40;
+                mineCount = 60;
                 break;
             default:
                 numRows = 8;
@@ -94,6 +94,13 @@ public class Minesweeper {
 
         boardPanel.setLayout(new GridLayout(numRows, numCols));
         frame.add(boardPanel);
+        JButton resetButton = new JButton("Reset");
+        resetButton.setFocusable(false);
+        resetButton.addActionListener(e -> {
+            frame.dispose(); 
+            new Minesweeper(); 
+        });
+        textPanel.add(resetButton, BorderLayout.EAST);
     }
 
     private void createGUI() {
